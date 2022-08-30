@@ -36,6 +36,12 @@ CREATE TABLE relation_person_child_person_adult (
 CREATE INDEX relation_person_child_person_adult_created_at_index ON relation_person_child_person_adult (created_at);
 CREATE INDEX relation_person_child_person_adult_person_child_id_index ON relation_person_child_person_adult (person_child_id);
 CREATE INDEX relation_person_child_person_adult_person_adult_id_index ON relation_person_child_person_adult (person_adult_id);
+CREATE TABLE observation_devices (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
+    name TEXT NOT NULL
+);
+CREATE INDEX observation_devices_created_at_index ON observation_devices (created_at);
 ALTER TABLE observation_child_height ADD CONSTRAINT observation_child_height_ref_person_child_id FOREIGN KEY (person_child_id) REFERENCES person_child (id) ON DELETE NO ACTION;
 ALTER TABLE relation_person_child_person_adult ADD CONSTRAINT relation_person_child_person_adult_ref_person_adult_id FOREIGN KEY (person_adult_id) REFERENCES person_adult (id) ON DELETE NO ACTION;
 ALTER TABLE relation_person_child_person_adult ADD CONSTRAINT relation_person_child_person_adult_ref_person_child_id FOREIGN KEY (person_child_id) REFERENCES person_child (id) ON DELETE NO ACTION;

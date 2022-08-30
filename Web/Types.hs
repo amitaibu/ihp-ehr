@@ -18,3 +18,13 @@ data AuthoritiesController
     | UpdateAuthorityAction { authorityId :: !(Id Authority) }
     | DeleteAuthorityAction { authorityId :: !(Id Authority) }
     deriving (Eq, Show, Data)
+
+data ObservationDevicesController
+    = ObservationDevicesAction
+    | NewObservationDeviceAction
+    | ShowObservationDeviceAction { observationDeviceId :: !(Id ObservationDevice) }
+    | CreateObservationDeviceAction
+    | EditObservationDeviceAction { observationDeviceId :: !(Id ObservationDevice) }
+    | UpdateObservationDeviceAction { observationDeviceId :: !(Id ObservationDevice) }
+    | DeleteObservationDeviceAction { observationDeviceId :: !(Id ObservationDevice) }
+    deriving (Eq, Show, Data)
